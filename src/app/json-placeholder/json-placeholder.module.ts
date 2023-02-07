@@ -17,11 +17,13 @@ import { JsonPlaceholderRoutingModule } from './json-placeholder-routing.module'
 import { HomePageComponent } from './home-page/home-page.component';
 import { PLACEHOLDER_STATE_NAME, placeHolderReducer } from './store';
 import { PlaceholderEffects } from './store/placeholder.effects';
-import { PostsComponent } from './pages/posts/posts.component';
 import { UsersComponent } from './pages/users/users.component';
 import { PlaceholderService } from './services/placeholder.service';
 import { UserComponent } from './pages/user/user.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { AlbumsComponent } from './components/albums/albums.component';
+import { TodosComponent } from './components/todos/todos.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 const materials = [
   MatListModule,
@@ -36,10 +38,12 @@ const materials = [
 @NgModule({
   declarations: [
     HomePageComponent,
-    PostsComponent,
     UsersComponent,
     UserComponent,
     UserDetailComponent,
+    AlbumsComponent,
+    TodosComponent,
+    PostsComponent,
   ],
   imports: [
     CommonModule,

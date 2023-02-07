@@ -1,6 +1,7 @@
 import { Post } from '../models/posts';
 import { User } from '../models/user';
 
+// Posts State
 export interface PostState {
   posts: Post[];
   loading: boolean;
@@ -13,6 +14,7 @@ export const initialPostState = {
   failure: undefined,
 };
 
+// USERS State
 export interface UsersState {
   users: User[];
   loading: boolean;
@@ -25,6 +27,7 @@ export const initialUsersState = {
   failure: undefined,
 };
 
+// SELECTED USER State
 export interface UserState {
   user: User | undefined;
   loading: boolean;

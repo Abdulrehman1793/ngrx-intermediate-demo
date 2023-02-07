@@ -25,6 +25,14 @@ export class PlaceholderService {
   }
 
   getUserPosts(userId: any) {
-    return this._http.get<Post[]>(`${this.rootUrl}/posts/${userId}`);
+    return this._http.get<Post[]>(`${this.rootUrl}/posts?userId=${userId}`);
+  }
+
+  getUserTodos(userId: any) {
+    return this._http.get<Post[]>(`${this.rootUrl}/todos?userId=${userId}`);
+  }
+
+  getUserAlbums(userId: any) {
+    return this._http.get<Post[]>(`${this.rootUrl}/albums?userId=${userId}`);
   }
 }
