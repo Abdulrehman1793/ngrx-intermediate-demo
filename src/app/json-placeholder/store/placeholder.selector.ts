@@ -21,3 +21,19 @@ export const getPostsFailure = createSelector(
   getPostState,
   (state) => state.failure
 );
+
+// Users selector
+export const getUserState = createSelector(
+  getPlcaeholderState,
+  (state) => state.userState
+);
+
+export const getUsers = createSelector(getUserState, (state) => state.users);
+export const isUsersLoading = createSelector(
+  getUserState,
+  (state) => state.loading
+);
+export const getUsersFailure = createSelector(
+  getUserState,
+  (state) => state.failure
+);
