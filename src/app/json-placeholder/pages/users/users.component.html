@@ -1,1 +1,12 @@
-{{users$ | async |json}}
+<div>
+  <mat-action-list>
+    <mat-list-item *ngFor="let user of users$ | async" lines="3" [routerLink]="[user.id]">
+      <img matListItemAvatar [src]="user.image" />
+      <div matListItemTitle>{{user.name}}</div>
+      {{user.username}} |
+      {{user.email}} |
+      {{user.phone}} |
+      {{user.website}}
+    </mat-list-item>
+  </mat-action-list>
+</div>

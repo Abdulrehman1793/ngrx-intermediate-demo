@@ -27,9 +27,14 @@ export class PlaceholderEffects {
     this.actions$.pipe(
       ofType(users_request),
       mergeMap(() =>
-        this.placeHolderService
-          .getUsers()
-          .pipe(map((users) => users_success({ users })))
+        this.placeHolderService.getUsers().pipe(
+          map((users) => {
+            users = users.map((user) =>
+              this.placeHolderService.setAvatar(user)
+            );
+            return users_success({ users });
+          })
+        )
       )
     )
   );

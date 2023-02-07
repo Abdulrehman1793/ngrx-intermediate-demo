@@ -11,4 +11,11 @@ export class PlaceholderService {
   getUsers() {
     return this._http.get<User[]>(`${this.rootUrl}/users`);
   }
+
+  setAvatar(user: User): User {
+    return {
+      ...user,
+      image: `https://robohash.org/${user.username.toLowerCase()}`,
+    };
+  }
 }
