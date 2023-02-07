@@ -9,7 +9,7 @@ const getPlcaeholderState = createFeatureSelector<PlaceholderState>(
 
 export const getPostState = createSelector(
   getPlcaeholderState,
-  (state) => state.postState
+  (state) => state.posts
 );
 
 export const getPosts = createSelector(getPostState, (state) => state.posts);
@@ -23,17 +23,36 @@ export const getPostsFailure = createSelector(
 );
 
 // Users selector
-export const getUserState = createSelector(
+export const getUsersState = createSelector(
   getPlcaeholderState,
-  (state) => state.userState
+  (state) => state.users
 );
 
-export const getUsers = createSelector(getUserState, (state) => state.users);
+export const getUsers = createSelector(getUsersState, (state) => state.users);
 export const isUsersLoading = createSelector(
-  getUserState,
+  getUsersState,
   (state) => state.loading
 );
 export const getUsersFailure = createSelector(
+  getUsersState,
+  (state) => state.failure
+);
+
+// User selector
+export const getUserState = createSelector(
+  getPlcaeholderState,
+  (state) => state.user
+);
+
+export const getSelectedUser = createSelector(
+  getUserState,
+  (state) => state.user!
+);
+export const isUserLoading = createSelector(
+  getUserState,
+  (state) => state.loading
+);
+export const getUserFailure = createSelector(
   getUserState,
   (state) => state.failure
 );

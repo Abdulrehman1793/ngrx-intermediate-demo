@@ -18,4 +18,8 @@ export class PlaceholderService {
       image: `https://robohash.org/${user.username.toLowerCase()}`,
     };
   }
+
+  getUserById(userId: any) {
+    return this._http.get<User>(`${this.rootUrl}/users/${userId}`);
+  }
 }

@@ -18,7 +18,20 @@
   padding: calc(var(--spacing-step) * 1);
   box-sizing: border-box;
   min-height: var(--min-height);
+  margin: auto;
 }
 .footer {
   margin-top: calc(0px - var(--spacing-step) * 2);
+}
+
+@media only screen and (min-width: 1096px) {
+  .page-content {
+    width: 75%;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .page-content {
+    width: 50%;
+  }
 }

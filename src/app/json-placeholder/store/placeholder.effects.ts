@@ -12,6 +12,8 @@ import {
   posts_success,
   users_request,
   users_success,
+  user_request,
+  user_success,
 } from './placeholder.action';
 
 @Injectable()
@@ -33,6 +35,20 @@ export class PlaceholderEffects {
               this.placeHolderService.setAvatar(user)
             );
             return users_success({ users });
+          })
+        )
+      )
+    )
+  );
+
+  selectedUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(user_request),
+      mergeMap(({ userId }) =>
+        this.placeHolderService.getUserById(userId).pipe(
+          map((user) => {
+            user = this.placeHolderService.setAvatar(user);
+            return user_success({ user });
           })
         )
       )

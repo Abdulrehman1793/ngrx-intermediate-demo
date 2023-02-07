@@ -8,11 +8,15 @@ import {
   users_loading,
   users_request,
   users_success,
+  user_fail,
+  user_loading,
+  user_request,
+  user_success,
 } from './placeholder.action';
 import {
   initialPlaceholder,
   initialPostState,
-  initialUserState,
+  initialUsersState,
   PlaceholderState,
 } from './placeholder.state';
 
@@ -22,44 +26,67 @@ const _placeholderReducer = createReducer(
   on(posts_request, (state) => {
     return {
       ...state,
-      postState: { ...initialPostState },
+      posts: { ...initialPostState },
     };
   }),
   on(posts_success, (state, { posts }) => {
     return {
       ...state,
-      postState: { ...state.postState, posts, loading: false },
+      posts: { ...state.posts, posts, loading: false },
     };
   }),
   on(posts_loading, (state) => ({
     ...state,
-    postState: { ...state.postState, loading: true },
+    posts: { ...state.posts, loading: true },
   })),
   on(posts_fail, (state, { failure }) => ({
     ...state,
-    postState: { ...state.postState, failure },
+    posts: { ...state.posts, failure },
   })),
 
   // Users
   on(users_request, (state) => {
     return {
       ...state,
-      userState: { ...initialUserState },
+      users: { ...initialUsersState },
     };
   }),
   on(users_success, (state, { users }) => {
     return {
       ...state,
-      userState: { ...state.userState, users, loading: false },
+      users: { ...state.users, users, loading: false },
     };
   }),
   on(users_loading, (state) => ({
     ...state,
-    userState: { ...state.userState, loading: true },
+    users: { ...state.users, loading: true },
   })),
   on(users_fail, (state, { failure }) => ({
     ...state,
-    userState: { ...state.userState, failure },
+    users: { ...state.users, failure },
+  })),
+
+  // User
+  // Users
+  on(user_request, (state) => {
+    return {
+      ...state,
+      users: { ...initialUsersState },
+    };
+  }),
+  on(user_success, (state, { user }) => {
+    return {
+      ...state,
+      user: { ...state.user, user, loading: false },
+    };
+  }),
+  on(user_loading, (state) => ({
+    ...state,
+    user: { ...state.user, loading: true },
+  })),
+  on(user_fail, (state, { failure }) => ({
+    ...state,
+    user: { ...state.user, failure },
   }))
 );
 
