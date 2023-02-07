@@ -7,6 +7,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./counter/counter.module').then((m) => m.CounterModule),
   },
+  {
+    path: 'jsonplaceholder',
+    loadChildren: () =>
+      import('./json-placeholder/json-placeholder.module').then(
+        (m) => m.JsonPlaceholderModule
+      ),
+  },
 ];
 
 @NgModule({
