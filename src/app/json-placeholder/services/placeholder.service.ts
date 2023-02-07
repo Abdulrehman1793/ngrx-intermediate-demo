@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Album } from '../models/album';
 import { Post } from '../models/posts';
+import { Todo } from '../models/todo';
 import { User } from '../models/user';
 
 @Injectable()
@@ -29,10 +31,10 @@ export class PlaceholderService {
   }
 
   getUserTodos(userId: any) {
-    return this._http.get<Post[]>(`${this.rootUrl}/todos?userId=${userId}`);
+    return this._http.get<Todo[]>(`${this.rootUrl}/todos?userId=${userId}`);
   }
 
   getUserAlbums(userId: any) {
-    return this._http.get<Post[]>(`${this.rootUrl}/albums?userId=${userId}`);
+    return this._http.get<Album[]>(`${this.rootUrl}/albums?userId=${userId}`);
   }
 }

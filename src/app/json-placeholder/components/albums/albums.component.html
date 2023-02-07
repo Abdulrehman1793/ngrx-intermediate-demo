@@ -1,1 +1,5 @@
-<p>albums works!</p>
+<mat-action-list>
+  <mat-list-item *ngFor="let album of albums$ | async">
+    <div matListItemTitle>{{album.title}}</div>
+  </mat-list-item>
+</mat-action-list>

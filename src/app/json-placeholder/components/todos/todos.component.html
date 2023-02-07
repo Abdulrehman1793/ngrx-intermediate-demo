@@ -1,1 +1,7 @@
-<p>todos works!</p>
+<div *ngIf="todos$ | async as todos">
+  <mat-selection-list #todos>
+    <mat-list-option *ngFor="let todo of todos" [value]="todo" [selected]="todo.completed">
+      {{todo.title}}
+    </mat-list-option>
+  </mat-selection-list>
+</div>

@@ -1,5 +1,11 @@
 import { Post } from '../models/posts';
 import { User } from '../models/user';
+import {
+  AlbumState,
+  initialAlbumState,
+  initialTodoState,
+  TodoState,
+} from './state';
 
 // Posts State
 export interface PostState {
@@ -44,10 +50,14 @@ export interface PlaceholderState {
   posts: PostState;
   users: UsersState;
   user: UserState;
+  album: AlbumState;
+  todo: TodoState;
 }
 
 export const initialPlaceholder: PlaceholderState = {
   posts: { ...initialPostState },
   users: { ...initialUsersState },
   user: { ...initialUserState },
+  album: { ...initialAlbumState },
+  todo: { ...initialTodoState },
 };

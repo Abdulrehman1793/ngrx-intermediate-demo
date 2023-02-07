@@ -1,5 +1,7 @@
 import { createAction, props } from '@ngrx/store';
+import { Album } from '../models/album';
 import { Post } from '../models/posts';
+import { Todo } from '../models/todo';
 import { User } from '../models/user';
 
 // ALL POSTS
@@ -39,5 +41,29 @@ export const user_success = createAction(
 );
 export const user_fail = createAction(
   '[Placeholder] Get user fail',
+  props<{ failure?: string }>()
+);
+
+// Seelcted User ALL ALBUM
+export const albums_request = createAction('[Placeholder] Get albums request');
+export const albums_loading = createAction('[Placeholder] Get albums loading');
+export const albums_success = createAction(
+  '[Placeholder] Get albums success',
+  props<{ albums: Album[] }>()
+);
+export const albums_fail = createAction(
+  '[Placeholder] Get albums fail',
+  props<{ failure?: string }>()
+);
+
+// Seelcted User ALL TODO
+export const todos_request = createAction('[Placeholder] Get todos request');
+export const todos_loading = createAction('[Placeholder] Get todos loading');
+export const todos_success = createAction(
+  '[Placeholder] Get todos success',
+  props<{ todos: Todo[] }>()
+);
+export const todos_fail = createAction(
+  '[Placeholder] Get todos fail',
   props<{ failure?: string }>()
 );

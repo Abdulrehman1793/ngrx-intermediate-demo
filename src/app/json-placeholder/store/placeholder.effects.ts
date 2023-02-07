@@ -7,8 +7,12 @@ import { map, mergeMap, withLatestFrom } from 'rxjs';
 import { AppState } from 'src/app/store';
 import { PlaceholderService } from '../services/placeholder.service';
 import {
+  albums_request,
+  albums_success,
   posts_request,
   posts_success,
+  todos_request,
+  todos_success,
   users_request,
   users_success,
   user_request,
@@ -62,6 +66,30 @@ export class PlaceholderEffects {
         return this.placeHolderService
           .getUserPosts(user.id)
           .pipe(map((posts) => posts_success({ posts })));
+      })
+    )
+  );
+
+  loadUserAlbums$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(albums_request),
+      withLatestFrom(this.store.select(getSelectedUser)),
+      mergeMap(([action, user]) => {
+        return this.placeHolderService
+          .getUserAlbums(user.id)
+          .pipe(map((albums) => albums_success({ albums })));
+      })
+    )
+  );
+
+  loadUserTodos$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(todos_request),
+      withLatestFrom(this.store.select(getSelectedUser)),
+      mergeMap(([action, user]) => {
+        return this.placeHolderService
+          .getUserTodos(user.id)
+          .pipe(map((todos) => todos_success({ todos })));
       })
     )
   );
