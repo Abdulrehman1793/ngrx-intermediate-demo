@@ -17,6 +17,7 @@ import {
   initialPlaceholder,
   initialPostState,
   initialUsersState,
+  initialUserState,
   PlaceholderState,
 } from './placeholder.state';
 
@@ -71,7 +72,7 @@ const _placeholderReducer = createReducer(
   on(user_request, (state) => {
     return {
       ...state,
-      users: { ...initialUsersState },
+      user: { ...initialUserState },
     };
   }),
   on(user_success, (state, { user }) => {

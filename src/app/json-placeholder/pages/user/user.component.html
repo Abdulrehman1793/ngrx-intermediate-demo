@@ -1,1 +1,35 @@
+<div>
+  <button mat-raised-button [routerLink]="['../']">
+    <mat-icon>arrow_back</mat-icon>
+    Back
+  </button>
+  <hr />
+</div>
+<br />
+
 <app-user-detail></app-user-detail>
+
+
+<mat-tab-group *ngIf="user$ | async as user">
+  <mat-tab label="Posts">
+    <ng-template matTabContent>
+      <div class="container mat-elevation-z4">
+        <app-posts></app-posts>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Albums">
+    <ng-template matTabContent>
+      <div class="container mat-elevation-z4">
+        <!-- <app-albums [user]="user"></app-albums> -->
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Todos">
+    <ng-template matTabContent>
+      <div class="container mat-elevation-z4">
+        <!-- <app-todos [user]="user"></app-todos> -->
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

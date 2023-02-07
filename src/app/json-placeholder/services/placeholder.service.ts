@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Post } from '../models/posts';
 import { User } from '../models/user';
 
 @Injectable()
@@ -21,5 +22,9 @@ export class PlaceholderService {
 
   getUserById(userId: any) {
     return this._http.get<User>(`${this.rootUrl}/users/${userId}`);
+  }
+
+  getUserPosts(userId: any) {
+    return this._http.get<Post[]>(`${this.rootUrl}/posts/${userId}`);
   }
 }

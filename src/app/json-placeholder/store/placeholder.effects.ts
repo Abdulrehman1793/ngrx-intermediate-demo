@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 
-import { map, mergeMap } from 'rxjs/operators';
+import { map, mergeMap, withLatestFrom } from 'rxjs';
 
 import { AppState } from 'src/app/store';
-import { PostService } from '../services';
 import { PlaceholderService } from '../services/placeholder.service';
 import {
   posts_request,
@@ -15,12 +14,12 @@ import {
   user_request,
   user_success,
 } from './placeholder.action';
+import { getSelectedUser } from './placeholder.selector';
 
 @Injectable()
 export class PlaceholderEffects {
   constructor(
     private actions$: Actions,
-    private postService: PostService,
     private placeHolderService: PlaceholderService,
     private store: Store<AppState>
   ) {}
@@ -55,14 +54,15 @@ export class PlaceholderEffects {
     )
   );
 
-  loadPosts$ = createEffect(() =>
+  loadUserPosts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(posts_request),
-      mergeMap(() =>
-        this.postService
-          .getPosts()
-          .pipe(map((posts) => posts_success({ posts })))
-      )
+      withLatestFrom(this.store.select(getSelectedUser)),
+      mergeMap(([action, user]) => {
+        return this.placeHolderService
+          .getUserPosts(user.id)
+          .pipe(map((posts) => posts_success({ posts })));
+      })
     )
   );
 }
