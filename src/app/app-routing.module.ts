@@ -14,6 +14,20 @@ const routes: Routes = [
         (m) => m.JsonPlaceholderModule
       ),
   },
+  {
+    path: 'testing',
+    loadChildren: () =>
+      import('./testingmodule/testingmodule.module').then(
+        (m) => m.TestingmoduleModule
+      ),
+  },
+  {
+    path: 'cards',
+    loadChildren: () =>
+      import('./displaycard/displaycard.module').then(
+        (m) => m.DisplaycardModule
+      ),
+  },
 ];
 
 @NgModule({

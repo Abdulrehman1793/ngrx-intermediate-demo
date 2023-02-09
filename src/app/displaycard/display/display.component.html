@@ -1,0 +1,18 @@
+Note: I'm already using media query in app.component.scss for page content.
+
+<div style="display: flex; flex-direction: row; flex-flow: wrap; gap:6px;">
+  <div style="min-width: 200px;" *ngFor="let card of cards$ | async">
+    <mat-card>
+      <mat-card-content>
+        <div style="display: flex; flex-direction: column;">
+          {{card.title}}
+          <h2>{{card.amount}}</h2>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          {{card.action}}
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { appReducer } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { TestingmoduleModule } from './testingmodule/testingmodule.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { EffectsModule } from '@ngrx/effects';
       traceLimit: 75,
     }),
     EffectsModule.forRoot([]),
+    TestingmoduleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

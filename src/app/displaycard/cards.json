@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Capacity",
+    "amount": "105 GB",
+    "action": "Last day"
+  },
+  {
+    "id": 2,
+    "title": "Revenue",
+    "amount": "$ 1345",
+    "action": "Updated now"
+  },
+  {
+    "id": 3,
+    "title": "Errors",
+    "amount": "23",
+    "action": "In the last hour"
+  },
+  {
+    "id": 4,
+    "title": "Followers",
+    "amount": "+ 44",
+    "action": "Updated now"
+  }
+]
